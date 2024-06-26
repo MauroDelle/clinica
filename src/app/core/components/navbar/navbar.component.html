@@ -1,0 +1,40 @@
+<!-- Image and text -->
+<nav class="navbar">
+    <div class="nav-home">
+      <a class="nav-brand ms-3" *ngIf="loggedUser | async as user; else notLoggedIn" (click)="goHome()">
+        <h1 id="nav-title" class="nav-title">Clinica Online</h1>
+      </a>
+    </div>
+  
+    <ng-template #notLoggedIn>
+      <!-- User is not logged in -->
+      <a class="nav-brand ms-3" (click)="goBienvenida()">
+        <h1 id="nav-title" class="nav-title">Clinica Online</h1>
+      </a>
+    </ng-template>
+  
+  
+    <div>
+      <a id="userProfile" class="navbar-brand" *ngIf="loggedUser | async as user">
+        <img
+          *ngIf="user.photoURL"
+          [src]="user.photoURL"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
+        {{ user.email }}
+      </a>
+  
+      <a
+        *ngIf="loggedUser | async as user"
+        id="btnLogOut"
+        class="btn btn-danger me-3"
+        (click)="logout()"
+      >
+        Cerrar sesión
+      </a>
+    </div>
+  </nav>
+  

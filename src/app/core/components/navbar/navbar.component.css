@@ -1,0 +1,85 @@
+.navbar {
+  position: sticky;
+  top: 0; /* Stick to the top of the viewport */
+  z-index: 100; /* Add a higher z-index to make sure it's on top of other elements */
+  background-color: white; /* Set the desired background color */
+  border-bottom: 4px solid #D3D3D3;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.nav-title {
+  cursor: pointer;
+}
+
+.nav-brand {
+  display: flex;
+  flex-direction: row;
+}
+
+.snes-jp-logo {
+  margin-top: 1px;
+}
+
+.nes-ash {
+  height: 20px;
+}
+
+.nav-brand i {
+  margin-right: 20px; /* Adjust the margin as needed */
+
+}
+
+.nav-title {
+  display: block;
+  font-size: 1.3em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+.about-me {
+  font-size: 17px;
+  margin-right: 70px;
+}
+
+#btnLogOut {
+  padding: 7px;
+  font-size: 12px;
+  color: #fff;
+}
+
+#userProfile {
+  font-size: 12px;
+}
+
+#about-me-title {
+  font-size: 11px;
+}
+
+@media (max-width: 1100px) {
+  #nav-title{
+   display: none;
+  }
+
+  .about-me {
+    font-size: 14px;
+    margin-right: 40px;
+
+    margin-left: 1rem!important;
+  }
+}
+
+@media (max-width: 750px) {
+
+ #userProfile {
+  display: none;
+ }
+  .about-me {
+    display: none;
+  }
+}
