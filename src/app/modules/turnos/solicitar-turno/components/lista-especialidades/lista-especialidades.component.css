@@ -1,0 +1,72 @@
+/* Estilo para el contenedor principal */
+.row {
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 10px; /* Bordes redondeados */
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 20px auto; /* Margen automático en los lados */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Color de fondo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  }
+  
+  /* Estilo para el título */
+  h5 {
+    text-align: center; /* Alineación centrada */
+    color: #007bff; /* Color azul */
+    padding-top: 1.5rem; /* Espaciado superior */
+    padding-bottom: 1.5rem; /* Espaciado inferior */
+  }
+  
+  /* Estilo para los perfiles de especialidades */
+  .profile {
+    display: flex; /* Mostrar como flexbox */
+    flex-wrap: wrap; /* Permitir envoltura de elementos */
+    justify-content: center; /* Centrar contenido horizontalmente */
+    margin-top: 20px; /* Margen superior */
+  }
+  
+  /* Estilo para los enlaces dentro de los perfiles */
+  .profile a {
+    display: flex; /* Mostrar como flexbox */
+    flex-direction: column; /* Dirección de columna */
+    align-items: center; /* Centrar elementos verticalmente */
+    text-decoration: none; /* Sin decoración de texto */
+    color: #212529; /* Color de texto oscuro */
+  }
+  
+  /* Estilo para las imágenes dentro de los enlaces */
+  .profile img {
+    width: 80px; /* Ancho de la imagen */
+    height: 80px; /* Altura de la imagen */
+    border-radius: 50%; /* Borde redondeado para la imagen circular */
+    margin-bottom: 10px; /* Margen inferior */
+  }
+  
+  /* Estilo para el texto de especialidad */
+  .profile p {
+    font-size: 14px; /* Tamaño de fuente */
+    margin: 0; /* Margen cero */
+    color: #007bff; /* Color azul */
+  }
+  
+  /* Estilo para el botón de solicitud */
+  .btn-solicitar-turno {
+    display: block; /* Mostrar como bloque */
+    width: 100%; /* Ancho completo */
+    max-width: 200px; /* Ancho máximo */
+    margin: 20px auto 0; /* Margen superior y automático en los lados */
+    padding: 10px; /* Relleno */
+    font-size: 16px; /* Tamaño de fuente */
+    text-align: center; /* Alineación centrada */
+    background-color: #007bff; /* Color de fondo azul */
+    color: #ffffff; /* Color de texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cursor de puntero */
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  .btn-solicitar-turno:hover {
+    background-color: #0056b3; /* Cambio de color de fondo al pasar el cursor */
+  }
+  

@@ -11,12 +11,12 @@
     ></app-lista-especialistas-turno>
   </ng-container>
 
-  <ng-container *ngIf="especialista">
-    <app-lista-especialidades
+    <ng-container *ngIf="especialista">
+      <app-lista-especialidades
       (especialidadSeleccionada)="onEspecialidadSeleccionada($event)"
       [especialistaSeleccionado]="especialista"
-    ></app-lista-especialidades>
-  </ng-container>
+      ></app-lista-especialidades>
+    </ng-container>
 
   <ng-container *ngIf="especialista && especialidad">
 

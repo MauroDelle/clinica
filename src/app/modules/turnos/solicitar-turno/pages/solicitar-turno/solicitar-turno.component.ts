@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-solicitar-turno',
   templateUrl: './solicitar-turno.component.html',
-  styleUrls: ['./solicitar-turno.component.scss']
+  styleUrls: ['./solicitar-turno.component.css']
 })
 export class SolicitarTurnoComponent {
 

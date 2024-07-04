@@ -8,7 +8,7 @@ import { Subscription, take } from 'rxjs';
 @Component({
   selector: 'app-lista-especialistas',
   templateUrl: './lista-especialistas.component.html',
-  styleUrls: ['./lista-especialistas.component.scss'],
+  styleUrls: ['./lista-especialistas.component.css'],
 })
 export class ListaEspecialistasComponent implements OnDestroy {
   especialistas: any;

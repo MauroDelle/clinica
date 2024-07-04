@@ -4,7 +4,7 @@ import { FirestoreService } from 'src/app/core/services/firestore.service';
 @Component({
   selector: 'app-lista-especialidades',
   templateUrl: './lista-especialidades.component.html',
-  styleUrls: ['./lista-especialidades.component.scss'],
+  styleUrls: ['./lista-especialidades.component.css'],
 })
 export class ListaEspecialidadesComponent {
   @Input() especialistaSeleccionado: any;

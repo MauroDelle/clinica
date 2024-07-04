@@ -5,7 +5,7 @@ import { TurnoService } from 'src/app/core/services/turno.service';
 @Component({
   selector: 'app-pacientes',
   templateUrl: './pacientes.component.html',
-  styleUrls: ['./pacientes.component.scss'],
+  styleUrls: ['./pacientes.component.css'],
 })
 export class PacientesComponent {
   usuarioLogeado: any;
