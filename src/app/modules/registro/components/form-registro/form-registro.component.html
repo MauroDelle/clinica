@@ -1,0 +1,111 @@
+<form [formGroup]="formRegistro" (ngSubmit)="onSubmit()" class="text-center">
+  <div class="row mb-1">
+    <div class="text-start my-2 input col-md-6">
+      <input class="form-control" type="text" id="nombre" formControlName="nombre" name="nombre" placeholder="Nombre" soloLetras>
+      <small class="text-danger" *ngIf="nombre?.touched && nombre?.hasError('required')">Ingrese un nombre.</small>
+      <small class="text-danger" *ngIf="nombre?.touched && nombre?.hasError('invalidCharacters')">Ingrese solo letras y espacios.</small>
+    </div>
+
+    <div class="text-start my-2 input col-md-6">
+      <input class="form-control" type="text" id="apellido" formControlName="apellido" name="apellido" placeholder="Apellido" soloLetras>
+      <small class="text-danger" *ngIf="apellido?.touched && apellido?.hasError('required')">Ingrese un apellido.</small>
+      <small class="text-danger" *ngIf="apellido?.touched && apellido?.hasError('invalidCharacters')">Ingrese solo letras y espacios.</small>
+    </div>
+  </div>
+
+  <div class="row mb-1">
+    <div class="text-start my-2 input col-md-3">
+      <input class="form-control" type="text" id="edad" formControlName="edad" name="edad" placeholder="Edad" soloNumeros>
+      <small class="text-danger" *ngIf="edad?.touched && edad?.errors">Ingrese la edad.</small>
+    </div>
+
+    <div class="text-start my-2 input col-md-9">
+      <input class="form-control" type="number" id="dni" formControlName="dni" name="dni" placeholder="DNI" soloNumeros>
+      <small class="text-danger" *ngIf="dni?.touched && dni?.errors">Ingrese el DNI.</small>
+    </div>
+  </div>
+
+  <div class="row mb-1">
+    <div class="text-start my-2 input col-md-12">
+      <input class="form-control" type="email" id="email" formControlName="email" name="edad" placeholder="Email">
+      <small class="text-danger" *ngIf="email?.touched && email?.errors">Ingrese el email.</small>
+    </div>
+  </div>
+  <div class="row mb-1">
+
+    <div class="text-start my-2 input col-md-12">
+      <input class="form-control" type="password" id="password" formControlName="password" name="password" placeholder="Contraseña">
+      <small class="text-danger" *ngIf="password?.touched && password?.errors">Ingrese la contraseña.</small>
+    </div>
+  </div>
+
+  <ng-container *ngIf="tipoUsuario === 'especialista'">
+    <div class="text-start my-2 input col-md-12">
+      <label class="text-muted" for="especialidad">Especialidad</label>
+      <select formControlName="especialidad" class="form-select" id="especialidad" multiple>
+        <option *ngFor="let especialidad of especialidades" [value]="especialidad">{{ especialidad }}</option>
+      </select>
+
+      <input  formControlName="otraEspecialidad" type="text" class="form-control my-2" placeholder="Ingrese su especialidad" (keyup.enter)="addOtraEspecialidad()">
+
+      <small class="text-danger" *ngIf="formRegistro.get('especialidad')!.hasError('maxOptionsExceeded')">
+        Maximo 2 especialidades.
+      </small>
+
+      <small class="text-danger" *ngIf="formRegistro.get('especialidad')?.touched && formRegistro.get('especialidad')?.errors && !formRegistro.get('especialidad')?.hasError('maxOptionsExceeded')">
+        Ingrese una opción
+      </small>
+
+    </div>
+  </ng-container>
+
+
+
+    <ng-container *ngIf="tipoUsuario === 'paciente'">
+      <div class="text-start my-2 input col-md-12">
+        <label class="text-muted" for="obra_social">Obra Social</label>
+        <select formControlName="obra_social" class="form-select" id="obra_social">
+          <option value="Osecac">Osecac</option>
+          <option value="Galeno">Galeno</option>
+          <option value="Picheano">Picheano</option>
+        </select>
+        <small class="text-danger" *ngIf="obra_social?.touched && obra_social?.errors">
+          Ingrese una opción
+        </small>
+      </div>
+    </ng-container>
+
+    <div class="row mb-1">
+      <div class="col-8 text-start">
+        <label for="imagen_a" class="form-label">Imágen de perfil</label>
+        <input class="form-control form-control-sm"  id="imagen_a" type="file" (change)="imagenA_change($event)" />
+      </div>
+      <div class="col-3">
+        <img height="70px" *ngIf="rutaImagenA" [src]="rutaImagenA" alt="Foto de perfil">
+      </div>
+    </div>
+
+    <ng-container *ngIf="tipoUsuario === 'paciente'">
+      <div class="row mb-1">
+        <div class="col-8 text-start">
+          <label for="imagen_b" class="form-label">Imágen de perfil 2</label>
+          <input class="form-control form-control-sm" id="imagen_b" type="file" (change)="imagenB_change($event)" />
+        </div>
+        <div class="col-3">
+          <img height="70px" *ngIf="rutaImagenB" [src]="rutaImagenB" alt="Foto de perfil">
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="row mb-1 mt-3">
+      <ngx-recaptcha2 #captchaElem
+      [siteKey]="siteKey"
+      formControlName="recaptcha">
+    </ngx-recaptcha2>
+    </div>
+
+
+  <div class="d-grid gap-2 mt-3">
+    <button type="submit" class="btn btn-primary" [disabled]="formRegistro.invalid">Continuar</button>
+  </div>
+</form>

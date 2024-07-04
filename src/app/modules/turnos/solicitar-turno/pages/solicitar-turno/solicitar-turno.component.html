@@ -1,0 +1,41 @@
+<div class="container">
+  <ng-container *ngIf="usuarioLogeado?.rol == 'admin'">
+    <app-lista-pacientes
+      (pacienteSeleccionado)="onPacienteSeleccionado($event)"
+    ></app-lista-pacientes>
+  </ng-container>
+
+  <ng-container *ngIf="paciente || usuarioLogeado?.rol != 'admin'">
+    <app-lista-especialistas-turno
+      (especialistaSeleccionado)="onEspecialistaSeleccionado($event)"
+    ></app-lista-especialistas-turno>
+  </ng-container>
+
+  <ng-container *ngIf="especialista">
+    <app-lista-especialidades
+      (especialidadSeleccionada)="onEspecialidadSeleccionada($event)"
+      [especialistaSeleccionado]="especialista"
+    ></app-lista-especialidades>
+  </ng-container>
+
+  <ng-container *ngIf="especialista && especialidad">
+
+    <app-lista-horarios-turno
+      [especialistaSeleccionado]="especialista"
+      [especialidadSeleccionada]="especialidad"
+      (fechaHoraSeleccionada)="onFechaHoraSeleccionada($event)"
+    >
+    </app-lista-horarios-turno>
+
+    <div class="row">
+      <button
+        type="button"
+        class="btn btn-primary btn-lg btn-block"
+        [disabled]="!especialista || !fechaSeleccionada || !horaSeleccionada"
+        (click)="solicitarTurno()"
+      >
+        Solicitar turno
+      </button>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,23 @@
+/* historia-clinica.component.scss */
+.text-center {
+  display: flex;
+  flex-direction: column;
+}
+
+.close-button {
+  margin-left: auto; /* Push the button to the right */
+  margin-top: 1rem; /* Adjust the top margin as needed */
+  margin-right: 1rem;
+}
+
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 500px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}

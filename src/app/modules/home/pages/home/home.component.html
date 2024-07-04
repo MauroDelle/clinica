@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-6 mt-3" *ngIf="usuarioLogeado?.rol === 'admin'">
+      <a class="card" routerLink="/usuarios">
+        <div class="card-body">Usuarios</div>
+      </a>
+    </div>
+    <div class="col-12 col-md-6 mt-3">
+      <a class="card" routerLink="/mi-perfil">
+        <div class="card-body">Mi Perfil</div>
+      </a>
+    </div>
+    <div
+    class="col-12 col-md-6 mt-3"
+    *ngIf="
+      usuarioLogeado?.rol === 'especialista'
+    "
+  >
+    <a class="card" routerLink="/pacientes">
+      <div class="card-body">Pacientes</div>
+    </a>
+  </div>
+  </div>
+  <div class="row">
+    <div
+      class="col-12 col-md-6 mt-3"
+      *ngIf="
+        usuarioLogeado?.rol === 'admin' || usuarioLogeado?.rol === 'paciente'
+      "
+    >
+      <a class="card" routerLink="/solicitar-turno">
+        <div class="card-body">Solicitar turno</div>
+      </a>
+    </div>
+
+    <div class="col-12 col-md-6 mt-3">
+      <a class="card" routerLink="/mis-turnos">
+        <div class="card-body">Mis Turnos</div>
+      </a>
+    </div>
+  </div>
+</div>

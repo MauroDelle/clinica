@@ -1,0 +1,29 @@
+<!-- Date selection -->
+<div class="col border border-2 border-primary rounded-5 mx-auto my-3">
+  <h5 class="text-center text-primary py-3">Fecha</h5>
+  <div class="col text-center m-3">
+    <span *ngFor="let fecha of fechas" class="btn btn-secondary m-2"
+          (click)="seleccionarFecha(fecha)" [ngClass]="{ 'selected': isSelectedFecha(fecha) }">
+      {{ fecha | date: 'dd-MM-yyyy' }}
+    </span>
+  </div>
+</div>
+
+<!-- Time selection -->
+<div class="col border border-2 border-primary rounded-5 mx-auto my-3">
+  <h5 class="text-center text-primary py-3">Hora</h5>
+  <div class="col text-center m-3">
+    <span
+      *ngFor="let hora of horas"
+      class="btn btn-secondary m-2 lowercase"
+      (click)="seleccionarHora(hora)"
+      [ngClass]="{
+        'selected': isSelectedHora(hora),
+        'disabled': selectedDay === undefined || isFechaHoraTaken(selectedDay, hora)
+      }"
+      [attr.disabled]="selectedDay === undefined || isFechaHoraTaken(selectedDay, hora) ? true : null"
+    >
+      {{ hora | date: 'hh:mma' }}
+    </span>
+  </div>
+</div>

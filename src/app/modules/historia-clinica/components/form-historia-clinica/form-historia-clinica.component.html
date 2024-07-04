@@ -1,0 +1,135 @@
+
+<div class="modal-container">
+  <button mat-button class="close-button btn btn-danger" (click)="onClose()">x</button>
+  <h4>Historia Clinica: {{ this.turno?.pacienteDetalles.nombre }} {{ this.turno?.pacienteDetalles.apellido }}</h4>
+  <form
+    [formGroup]="historiaClinicaForm"
+    (ngSubmit)="onSubmit()"
+    class="text-center mt-4"
+  >
+    <div class="row mb-1">
+      <div class="text-start my-2 input col-md-6">
+        <input
+          class="form-control"
+          type="number"
+          id="altura"
+          formControlName="altura"
+          placeholder="Altura"
+        />
+        <small class="text-danger" *ngIf="altura?.touched && altura?.errors"
+          >Ingrese la altura.</small
+        >
+      </div>
+
+      <div class="text-start my-2 input col-md-6">
+        <input
+          class="form-control"
+          type="number"
+          id="peso"
+          formControlName="peso"
+          placeholder="Peso"
+        />
+        <small class="text-danger" *ngIf="peso?.touched && peso?.errors"
+          >Ingrese el peso.</small
+        >
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="text-start my-2 input col-md-6">
+        <input
+          class="form-control"
+          type="number"
+          id="temperatura"
+          formControlName="temperatura"
+          placeholder="Temperatura"
+        />
+        <small
+          class="text-danger"
+          *ngIf="temperatura?.touched && temperatura?.errors"
+          >Ingrese la temperatura.</small
+        >
+      </div>
+
+      <div class="text-start my-2 input col-md-6">
+        <input
+          class="form-control"
+          type="number"
+          id="presion"
+          formControlName="presion"
+          placeholder="Presión"
+        />
+        <small class="text-danger" *ngIf="presion?.touched && presion?.errors"
+          >Ingrese la presión.</small
+        >
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Clave"
+          formControlName="clave1"
+        />
+        <span class="input-group-text">:</span>
+        <input
+          detectarInput
+          type="text"
+          class="form-control"
+          placeholder="Valor"
+          formControlName="valor1"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Clave"
+          formControlName="clave2"
+        />
+        <span class="input-group-text">:</span>
+        <input
+          detectarInput
+          type="text"
+          class="form-control"
+          placeholder="Valor"
+          formControlName="valor2"
+        />
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Clave"
+          formControlName="clave3"
+        />
+        <span class="input-group-text">:</span>
+        <input
+          detectarInput
+          type="text"
+          class="form-control"
+          placeholder="Valor"
+          formControlName="valor3"
+        />
+      </div>
+    </div>
+
+    <div class="d-grid gap-2 mt-3">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="historiaClinicaForm.invalid"
+      >
+        Continuar
+      </button>
+    </div>
+  </form>
+</div>

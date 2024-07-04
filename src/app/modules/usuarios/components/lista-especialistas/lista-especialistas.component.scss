@@ -1,0 +1,16 @@
+.especialista-container {
+  max-width: 320px;
+
+}
+
+.titulo {
+  display: flex!important;
+  flex-direction: row;
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.card-link {
+  cursor: pointer;
+}

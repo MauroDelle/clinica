@@ -1,0 +1,55 @@
+<div class="text-center mt-5" [@slideInOut]="currentIndex">
+  <h3 *ngIf="usuarioLogeado?.rol == 'especialista'" class="fw-bold">
+    Historias clínicas Pacientes
+  </h3>
+  <h3 *ngIf="usuarioLogeado?.rol == 'paciente'" class="fw-bold">
+    Historia clínica
+  </h3>
+
+  <hr />
+
+  <ng-container *ngIf="currentHistoria; else noData">
+    <div>
+      <div *ngFor="let item of currentHistoria | keyvalue">
+        <div *ngIf="item.key !== 'id'">
+          <div *ngIf="item.key !== 'adicionales'">
+            <span class="fw-bold">{{ item.key }}:</span>  {{ item.value | formatearMedidas: item.key }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Display additional information from 'adicionales' array -->
+      <div
+        *ngIf="
+          currentHistoria?.adicionales && currentHistoria.adicionales?.length > 0
+        "
+      >
+        <div *ngFor="let adicional of currentHistoria.adicionales">
+          <span class="fw-bold">{{ adicional.key }}:</span>
+          {{ adicional.value }}
+        </div>
+        <hr />
+      </div>
+    </div>
+  </ng-container>
+
+  <div *ngIf="historiaClinica?.length > 1">
+    <button class="btn btn btn-dark me-3" (click)="prevHistory()">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <button class="btn btn btn-dark" (click)="nextHistory()">
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <div class="mt-4">
+    <button class="btn btn-danger" (click)="descargar(historiaClinica)">
+      <i class="fas fa-download"></i>
+      Descargar en PDF
+    </button>
+  </div>
+
+  <ng-template #noData>
+    <p class="text-danger">No hay Historia clínica disponible.</p>
+  </ng-template>
+</div>

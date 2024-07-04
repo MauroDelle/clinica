@@ -1,0 +1,76 @@
+<table class="table align-middle mb-0 table-striped">
+  <thead class="bg-light">
+    <tr>
+      <th>Paciente</th>
+      <th>Especialista</th>
+      <th>Especialidad</th>
+      <th>Fecha y hora</th>
+      <th>Estado</th>
+      <th>Atención</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let turno of turnos">
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+            [src]="turno.pacienteDetalles?.imagen_a_url"
+            style="width: 45px; height: 45px"
+            class="rounded-circle"
+          />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">
+              {{ turno.pacienteDetalles?.nombre }}
+              {{ turno.pacienteDetalles?.apellido }}
+            </p>
+            <p class="text-muted mb-0">{{ turno.paciente }}</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="d-flex align-items-center">
+          <img
+            [src]="turno.especialistaDetalles?.imagen_a_url"
+            style="width: 45px; height: 45px"
+            class="rounded-circle"
+          />
+          <div class="ms-3">
+            <p class="fw-bold mb-1">
+              {{ turno.especialistaDetalles?.nombre }}
+              {{ turno.especialistaDetalles?.apellido }}
+            </p>
+            <p class="text-muted mb-0">{{ turno.especialista }}</p>
+          </div>
+        </div>
+      </td>
+      <td>
+        <h5>
+          <span class="d-inline">{{ turno.especialidad }}</span>
+        </h5>
+      </td>
+      <td>{{ formatDateTime(turno.fecha) }}</td>
+      <td>
+        <h5 [ngSwitch]="turno.estado">
+          <span *ngSwitchCase="'Solicitado'" class="d-inline text-primary">{{
+            turno.estado
+          }}</span>
+          <span *ngSwitchCase="'Aceptado'" class="d-inline text-success">{{
+            turno.estado
+          }}</span>
+          <span *ngSwitchCase="'Cancelado'" class="d-inline text-danger">{{
+            turno.estado
+          }}</span>
+          <span *ngSwitchCase="'Rechazado'" class="d-inline text-danger">{{
+            turno.estado
+          }}</span>
+          <span *ngSwitchCase="'Finalizado'" class="d-inline finalizado">{{
+            turno.estado
+          }}</span>
+        </h5>
+      </td>
+      <td>
+        <button (click)="mostrarResenia(turno.atencion)" *ngIf="turno.atencion" class="btn btn-warning">Reseña</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

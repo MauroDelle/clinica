@@ -1,0 +1,31 @@
+<div class="dropdown" >
+  <button type="button" class="btn btn-link btn-sm btn-rounded dropdown-toggle hidden-arrow" data-bs-toggle="dropdown">
+    <i class="fas fa-cog fa-2x"></i>
+  </button>
+    <ul class="dropdown-menu">
+      <li *ngIf="this.turno.estado == 'Aceptado' || (this.usuarioLogeado.rol == 'paciente' && this.turno.estado != 'Finalizado' && this.turno.estado != 'Cancelado')">
+        <a (click)="cambiarEstadoTurno('Cancelado')" class="dropdown-item text-danger">Cancelar turno</a>
+      </li>
+      <li *ngIf="this.turno.estado == 'Solicitado' && this.usuarioLogeado.rol == 'especialista'">
+        <a (click)="cambiarEstadoTurno('Rechazado')" class="dropdown-item text-danger">Rechazar turno</a>
+      </li>
+      <li *ngIf="this.turno.estado == 'Solicitado' && this.usuarioLogeado.rol == 'especialista'">
+        <a (click)="cambiarEstadoTurno('Aceptado')" class="dropdown-item text-success">Aceptar turno</a>
+      </li>
+      <li *ngIf="this.turno.estado == 'Aceptado' && this.usuarioLogeado.rol == 'especialista'">
+        <a (click)="cambiarEstadoTurno('Finalizado')" class="dropdown-item finalizado">Finalizar turno</a>
+      </li>
+      <li  *ngIf="this.turno.estado == 'Finalizado' && this.usuarioLogeado.rol == 'especialista' && !this.turno.historiaClinica">
+        <a  (click)="openHistoriaClinicaModal()" class="dropdown-item finalizado">Historia clinica</a>
+      </li>
+      <li (click)="calificarAtencion()" *ngIf="this.turno.estado == 'Finalizado' && this.usuarioLogeado.rol == 'paciente' && this.turno.resenia && !this.turno.atencion">
+        <a class="dropdown-item text-primary">Calificar Atención</a>
+      </li>
+      <li>
+        <a *ngIf="this.turno.atencion && this.usuarioLogeado.rol != 'admin'" (click)="verAtencion()"  class="dropdown-item text-success">Ver reseña paciente</a>
+      </li>
+      <li>
+        <a *ngIf="this.turno.resenia && this.usuarioLogeado.rol != 'admin'" (click)="verDiagnostico()"  class="dropdown-item text-primary">Ver diagnostico</a>
+      </li>
+    </ul>
+</div>

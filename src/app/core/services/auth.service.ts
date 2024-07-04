@@ -142,7 +142,7 @@ export class AuthService {
             } else {
               throw Error(
                 'Usuario no registrado'
-              );
+              );    
             }
 
             // For example, you can return a success message

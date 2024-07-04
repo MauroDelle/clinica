@@ -1,0 +1,118 @@
+<div class="container p-5 align-items-center">
+  <div class="row justify-content-center my-3">
+    <div class="row justify-content-center">
+      <img
+        [src]="usuarioLogeado?.imagen_a_url"
+        class="rounded-circle p-0 m-2"
+      />
+      <img
+        *ngIf="usuarioLogeado?.rol === 'paciente'"
+        [src]="usuarioLogeado?.imagen_b_url"
+        class="rounded-circle p-0 m-2"
+      />
+    </div>
+
+    <ul class="list-group list-group-light col-md-4">
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <div class="fw-bold">Apellido y nombre</div>
+          <div class="text-muted">
+            {{ usuarioLogeado?.nombre | formatNombreApellido: usuarioLogeado?.apellido }}
+          </div>
+        </div>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <div class="fw-bold">Edad</div>
+          <div class="text-muted">{{ usuarioLogeado?.edad }}</div>
+        </div>
+      </li>
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <div class="fw-bold">Correo electrónico</div>
+          <div class="text-muted">{{ usuarioLogeado?.email }}</div>
+        </div>
+      </li>
+      <li
+        *ngIf="usuarioLogeado?.obraSocial"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <div class="fw-bold">Obra social</div>
+          <div class="text-muted">{{ usuarioLogeado?.obraSocial }}</div>
+        </div>
+      </li>
+      <li
+        *ngIf="usuarioLogeado?.especialidad"
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <div class="fw-bold">Especialidad/es</div>
+          <div class="text-muted">{{ usuarioLogeado?.especialidad }}</div>
+        </div>
+      </li>
+
+      <div class="mt-4" *ngIf="usuarioLogeado?.rol === 'especialista'">
+        <button class="btn btn-danger" (click)="descargar()">
+          <i class="fas fa-download"></i>
+          Descargar en PDF
+        </button>
+      </div>
+    </ul>
+  </div>
+
+  <div *ngIf="usuarioLogeado?.rol === 'paciente'">
+    <app-historia-clinica-tabla></app-historia-clinica-tabla>
+  </div>
+
+  <div *ngIf="usuarioLogeado?.rol === 'especialista'">
+    <div>
+      <h4>Horarios</h4>
+      <div class="d-flex">
+        <div *ngFor="let esp of usuarioLogeado?.especialidad">
+          <button
+            class="btn me-2"
+            [ngClass]="{
+              'btn-danger': esp === usuarioLogeado?.especialidad[0],
+              'btn-warning': esp === usuarioLogeado?.especialidad[1],
+            }"
+          >
+            {{ esp }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngFor="let entry of horarios?.horarios; let i = index"
+      class="d-flex mt-2"
+    >
+      <button
+        (click)="getEspecialidad(entry.dia)"
+        class="btn me-2"
+        [ngClass]="{
+          'btn-danger': assignedEspecialidades[entry.dia] === usuarioLogeado?.especialidad[0],
+          'btn-warning': assignedEspecialidades[entry.dia] === usuarioLogeado?.especialidad[1],
+        }"
+      >
+        {{ entry.dia }}
+      </button>
+
+      <select
+        class="form-control"
+        [(ngModel)]="entry.turno"
+        (change)="updateTurno(entry)"
+      >
+        <option value="Mañana">Mañana (08:00 - 13:00)</option>
+        <option value="Tarde">Tarde (13:00 - 19:00)</option>
+        <option value="Completo">Completo (08:00 - 19:00)</option>
+      </select>
+    </div>
+  </div>
+</div>

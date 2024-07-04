@@ -1,0 +1,30 @@
+
+<div class="container-fluid" [@routeAnimations]="getRouterOutletState(outlet)">
+  <div class="row">
+    <nav class="nav nav-pills flex-column col-md-2 ms-2">
+        <a class="card mt-4"  routerLinkActive="bg-primary text-light" routerLink="/usuarios/especialistas">
+          <div class="card-body text-center">
+            Lista Especialistas
+          </div>
+        </a>
+        <a class="card mt-2"  routerLinkActive="bg-primary text-light" routerLink="/usuarios/pacientes">
+          <div class="card-body text-center">
+            Lista Pacientes
+          </div>
+        </a>
+        <a class="card mt-2" routerLink="/usuarios/registro">
+          <div class="card-body text-center">
+            Registrar Usuarios
+          </div>
+        </a>
+        <a (click)="descargarExcelUsuarios()" class="excel card mt-2 bg-success">
+          <div class="card-body text-center text-light">
+            Excel Usuarios
+          </div>
+        </a>
+    </nav>
+    <div  class="col">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.selected {
+  border: 4px solid rgb(0, 110, 255);  // Add your desired styles here
+}
+
+/* Add this style to your component's stylesheet or a global stylesheet */
+.disabled {
+  pointer-events: none;
+  opacity: 0.5; /* or any other styling for a disabled look */
+}

@@ -1,0 +1,39 @@
+<div class="container p-5">
+  <div class="d-flex flex-column align-items-center justify-content-center">
+    <h2 class="text-primary">
+      Registro {{ this.tipoUsuarioSeleccionado | titlecase }}
+    </h2>
+    <div class="tipo-usuario-container mt-3 mb-4">
+      <img
+        [class.selected]="tipoUsuarioSeleccionado === 'paciente'"
+        (click)="seleccionarTipoUsuario('paciente')"
+        src="../../../../../assets/imgs/paciente.png"
+        alt="Registrar usuario"
+        class="col btn rounded-circle p-0 m-4"
+        height="80"
+      />
+      <img
+        [class.selected]="tipoUsuarioSeleccionado === 'especialista'"
+        (click)="seleccionarTipoUsuario('especialista')"
+        src="../../../../../assets/imgs/especialista.png"
+        alt="Registrar usuario"
+        class="col btn rounded-circle p-0 m-4"
+        height="80"
+      />
+      <img
+      *ngIf="usuarioLogeado?.rol === 'admin'"
+      [class.selected]="tipoUsuarioSeleccionado === 'admin'"
+      (click)="seleccionarTipoUsuario('admin')"
+      src="../../../../../assets/imgs/admin.png"
+      alt="Registrar usuario"
+      class="col btn rounded-circle p-0 m-4"
+      height="80"
+    />
+    </div>
+    <app-form-registro [tipoUsuario]="tipoUsuario"></app-form-registro>
+    <span class="mt-4" *ngIf="!usuarioLogeado">
+      ¿Ya estas registrado?
+      <a routerLink="/login">Iniciá sesión</a>
+    </span>
+  </div>
+</div>
