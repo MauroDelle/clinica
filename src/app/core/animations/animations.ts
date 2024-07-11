@@ -1,6 +1,9 @@
 import { trigger, transition, style, animate, query, group } from '@angular/animations';
 
 
+
+
+
 export const fader = trigger('routeAnimations', [
   transition('* <=> *', [
     query(':enter, :leave', [
@@ -22,13 +25,13 @@ export const fader = trigger('routeAnimations', [
 ]);
 
 
+
 export const slider =
 trigger('routeAnimations', [
   transition('* => isLeft', slideTo('left')),
   transition('* => isRight', slideTo('right')),
   transition('isRight => *', slideTo('left')),
   transition('isLeft => *', slideTo('right')),
-
 ]);
 
 function slideTo(direction: any) {
@@ -42,6 +45,7 @@ return [
       [direction]: 0,
       width: '100%'
     })
+
   ], optional),
   query(':enter', [
     style({ [direction]: '-100%' })
@@ -55,7 +59,4 @@ return [
     ], optional)
   ])
 ];
-
-
-
 }
