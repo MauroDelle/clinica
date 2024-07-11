@@ -40,7 +40,7 @@ export class PacientesTurnoComponent implements OnChanges {
     const date = new Date(
       timestamp.seconds * 1000 + timestamp.nanoseconds / 1e6
     );
-    return this.datePipe.transform(date, 'dd/MM/yyyy HH:mm') || '';
+    return this.datePipe.transform(date, 'yyyy/MM/dd HH:mm') || '';
   }
 
 
