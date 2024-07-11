@@ -1,0 +1,116 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Botones de profesionales */
+  app-lista-especialistas-turno button {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  app-lista-especialistas-turno button img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+  }
+  
+  app-lista-especialistas-turno button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Botones de especialidades */
+  app-lista-especialidades button {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    background-color: #28a745;
+    color: white;
+  }
+  
+  app-lista-especialidades button img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+  }
+  
+  app-lista-especialidades button:hover {
+    background-color: #218838;
+  }
+  
+  app-lista-especialidades .especialidad-nombre {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Botones de horarios */
+  app-lista-horarios-turno button {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  app-lista-horarios-turno button:hover {
+    background-color: #e0a800;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  button.btn-primary {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

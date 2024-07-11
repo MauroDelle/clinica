@@ -1,17 +1,9 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-image: url('../../../../../assets/imgs/foto-hospital.jpg'); background-size: cover; background-position: center; min-height: 90vh;">
   <div class="row">
-    <div
-      class="col-md-6 col-lg-7 col-xl-8 d-flex align-items-center ps-5 background"
-    >
-      <div
-        class="col-xl-12 bg-opacity-50 p-3 rounded text-light text-opacity-75 p-5"
-      >
+    <div class="iniciar-sesion">
+      <div class="col-xl-12 bg-opacity-50 p-3 rounded text-light text-opacity-75 p-5">
         <h2 class="text-center pb-3 fw-bold text-primary">Iniciar Sesion</h2>
-        <form
-          [formGroup]="formLogin"
-          (ngSubmit)="onSubmit()"
-          class="text-center"
-        >
+        <form [formGroup]="formLogin" (ngSubmit)="onSubmit()" class="text-center">
           <div class="row">
             <div class="my-3">
               <div class="row mb-1">
@@ -24,11 +16,7 @@
                     name="edad"
                     placeholder="Email"
                   />
-                  <small
-                    class="text-danger"
-                    *ngIf="email?.touched && email?.errors"
-                    >Ingrese el email.</small
-                  >
+                  <small class="text-danger" *ngIf="email?.touched && email?.errors">Ingrese el email.</small>
                 </div>
               </div>
               <div class="row mb-1">
@@ -41,44 +29,35 @@
                     name="password"
                     placeholder="Contraseña"
                   />
-                  <small
-                    class="text-danger"
-                    *ngIf="password?.touched && password?.errors"
-                    >Ingrese la contraseña.</small
-                  >
+                  <small class="text-danger" *ngIf="password?.touched && password?.errors">Ingrese la contraseña.</small>
                 </div>
               </div>
             </div>
           </div>
-          <button
-            type="submit"
-            class="btn btn-primary p-3 mt-4"
-            [disabled]="!formLogin.valid"
-          >
+          <button type="submit" class="btn btn-primary p-3 mt-4" [disabled]="!formLogin.valid">
             Iniciar sesión
           </button>
         </form>
       </div>
     </div>
-    <div
-      class="col-md-6 col-lg-5 col-xl-4 border-dark p-5 bg-light d-flex flex-column justify-content-center"
-    >
+    <div class="acceso-rapido">
       <h2 class="text-center pb-3 fw-bold text-primary">
         Acceso
         <i class="fa-solid fa-shield-halved"></i>
         Rapido
       </h2>
       <div class="text-center mt-4 row border-top">
-        <div *ngFor="let user of usuariosAccesoRapido" class="profile col">
-          <img
-            [src]="user.imagen_a_url"
-            class="col btn rounded-circle p-0 m-4"
-            height="50"
-            width="50"
-            role="button"
-            (click)="setDatosDeLogin(user)"
-          />
-          <p class="text-dark">{{ user.rol | titlecase }}</p>
+        <div class="access-buttons">
+          <div *ngFor="let user of usuariosAccesoRapido" class="profile col">
+            <img
+              [src]="user.imagen_a_url"
+              height="50"
+              width="50"
+              role="button"
+              (click)="setDatosDeLogin(user)"
+            />
+            <p class="text-dark">{{ user.rol | titlecase }}</p>
+          </div>
         </div>
       </div>
     </div>

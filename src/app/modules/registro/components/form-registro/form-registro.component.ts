@@ -30,7 +30,7 @@ export class FormRegistroComponent implements OnChanges {
 
    siteKey: string = '6Lc6dAQqAAAAAC3QCd85LyS4wLMlPhXSQAaIU4p7'; // localhost
   
-    // siteKey: string = '6LdP1QIqAAAAAHamHVFaUKWFjUqBh5DMxabr9dGd';
+     //siteKey: string = '6LdP1QIqAAAAAHamHVFaUKWFjUqBh5DMxabr9dGd';
 
 
   constructor(
