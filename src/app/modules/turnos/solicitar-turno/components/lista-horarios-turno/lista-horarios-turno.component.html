@@ -4,7 +4,7 @@
   <div class="col text-center m-3">
     <span *ngFor="let fecha of fechas" class="btn btn-secondary m-2"
           (click)="seleccionarFecha(fecha)" [ngClass]="{ 'selected': isSelectedFecha(fecha) }">
-      {{ fecha | date: 'dd-MM-yyyy' }}
+      {{ fecha | date: 'yyyy-MM-dd' }}
     </span>
   </div>
 </div>

@@ -43,39 +43,8 @@ body {
     background-color: #0056b3;
   }
   
-  /* Botones de especialidades */
-  app-lista-especialidades button {
-    width: 200px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    margin: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-    background-color: #28a745;
-    color: white;
-  }
-  
-  app-lista-especialidades button img {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 5px;
-  }
-  
-  app-lista-especialidades button:hover {
-    background-color: #218838;
-  }
-  
-  app-lista-especialidades .especialidad-nombre {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
+
+
   
   /* Botones de horarios */
   app-lista-horarios-turno button {
